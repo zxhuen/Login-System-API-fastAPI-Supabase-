@@ -1,0 +1,123 @@
+# Backend Authentication API Roadmap
+
+This project is part of my backend development journey. The goal is to build a production-ready authentication API by implementing features incrementally while understanding the purpose behind each one.
+
+---
+
+## ✅ Completed
+
+- [x] CRUD API
+- [x] SQLAlchemy ORM
+- [x] PostgreSQL (Supabase)
+- [x] Alembic Migrations
+- [x] Repository Pattern
+- [x] Service Layer
+- [x] Pydantic Validation
+- [x] Clean Project Structure
+
+---
+
+## 🚧 Phase 1 — User Registration
+
+- [ ] Create User model
+- [ ] Registration endpoint
+- [ ] User creation service
+- [ ] Validate request data
+- [ ] Prevent duplicate usernames/emails
+- [ ] Return proper HTTP responses
+
+---
+
+## 🔒 Phase 2 — Password Hashing
+
+- [ ] Hash passwords before saving
+- [ ] Verify passwords during login
+- [ ] Learn how password hashing works
+
+---
+
+## 🔑 Phase 3 — Login
+
+- [ ] Login endpoint
+- [ ] Verify credentials
+- [ ] Return authentication response
+- [ ] Handle invalid credentials
+
+---
+
+## 🎫 Phase 4 — JWT Authentication
+
+- [ ] Generate access tokens
+- [ ] Verify JWT tokens
+- [ ] Protect private endpoints
+- [ ] Get current authenticated user
+
+---
+
+## 🔄 Phase 5 — Refresh Tokens
+
+- [ ] Create refresh tokens
+- [ ] Generate new access tokens
+- [ ] Handle token expiration
+
+---
+
+## 🛡️ Phase 6 — Authorization
+
+- [ ] User roles
+- [ ] Admin-only endpoints
+- [ ] Role-based access control
+
+---
+
+## 📈 Phase 7 — API Improvements
+
+- [ ] Pagination
+- [ ] Search
+- [ ] Filtering
+- [ ] Sorting
+- [ ] Consistent API responses
+- [ ] Better error handling
+
+---
+
+## ✉️ Phase 8 — Account Management
+
+- [ ] Email verification
+- [ ] Password reset
+- [ ] Change password
+- [ ] Update profile
+
+---
+
+## 🚀 Phase 9 — Production Features
+
+- [ ] Environment configuration
+- [ ] Logging
+- [ ] Rate limiting
+- [ ] Testing
+- [ ] Docker
+- [ ] CI/CD
+
+---
+
+# 🎯 Goal
+
+Build a reusable authentication backend template featuring:
+
+- User Registration
+- Password Hashing
+- Login
+- JWT Authentication
+- Protected Routes
+- Refresh Tokens
+- Authorization
+- Search & Pagination
+- Clean Architecture
+- Production-ready Project Structure
+
+---
+
+> **Learning Philosophy**
+>
+> The objective is not only to build a working authentication system but to understand why each feature exists, how it improves security, and how it helps frontend developers integrate with the API efficiently.
