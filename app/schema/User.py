@@ -1,5 +1,5 @@
 from pydantic import BaseModel, EmailStr, Field 
-
+from uuid import UUID
 class UserCreate(BaseModel):
     username: str = Field(
         min_length=5,
@@ -7,15 +7,15 @@ class UserCreate(BaseModel):
         pattern=r"^[a-zA-Z0-9_]+$"
     )
     email: EmailStr
-    password: str = Field(
+    hashed_password: str = Field(
         min_length=8,
         max_length=128
     )
 
 class UserResponse(BaseModel):
-    id: int
+    id: UUID
     username: str
     email: EmailStr
-    
+
     class Config:
         from_attributes = True

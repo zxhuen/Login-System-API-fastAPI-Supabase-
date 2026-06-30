@@ -45,3 +45,8 @@ def delete_user_repo(db: Session, user_id: int):
     db.commit()
 
     return user
+
+def get_user_by_email(db: Session, user_email: str):
+    user = db.query(User).filter(User.email == user_email).first()
+
+    return user

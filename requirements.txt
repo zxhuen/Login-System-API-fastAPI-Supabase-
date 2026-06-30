@@ -11,3 +11,5 @@ pydantic-settings
 
 supabase
 alembic
+
+email-validator
