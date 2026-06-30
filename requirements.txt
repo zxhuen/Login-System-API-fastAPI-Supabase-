@@ -13,3 +13,4 @@ supabase
 alembic
 
 email-validator
+pwdlib[argon2]

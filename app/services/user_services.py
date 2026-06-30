@@ -1,32 +1,57 @@
 from sqlalchemy.orm import Session
-from app.repository.user_repo import create_user_repo, get_user_repo, edit_user_repo, delete_user_repo, get_user_by_email
-from app.schema.User import UserCreate, UserResponse
+from app.repository.user_repo import create_user_repo, get_user_repo, edit_user_repo, delete_user_repo, get_user_by_email_repo, get_user_by_username_repo
+from app.schema.User import UserCreate, UserResponse, EditUser
 from fastapi import HTTPException
 from sqlalchemy.exc import IntegrityError
+from pwdlib import PasswordHash
+from app.models.User import User
+from uuid import UUID
 
+
+password_hash = PasswordHash.recommended()
 
 def add_user_services(db: Session, Create: UserCreate):
-    existing_user =  get_user_by_email(db, Create.email)
+    existing_email =  get_user_by_email_repo(db, Create.email)
 
-    if existing_user:
+    if existing_email:
         raise HTTPException(
         status_code=409,
         detail="Email already exists."
     )
+    
+    existing_user = get_user_by_username_repo(db, Create.username)
+
+    if existing_user:
+        raise HTTPException(
+            status_code=409,
+            detail="Username already exists."
+        )
+
 
     try: 
-        return create_user_repo(db, Create)
+        hashed_password = hash_password(Create.hashed_password)
+        
+        new_user = User(
+            username = Create.username,
+            email = Create.email,
+            hashed_password = hashed_password
+        )
+
+        return create_user_repo(db, new_user)
     except IntegrityError:
         db.rollback()
         raise HTTPException(
         status_code=409,
-        detail="Email already exists."
+        detail="Email or Username already exists."
     )
+
+def hash_password(password: str) -> str:
+    return password_hash.hash(password)
 
 def list_user_services(db: Session):
     return get_user_repo(db)
 
-def edit_user_services(db: Session, person_id: int, user: UserCreate):
+def edit_user_services(db: Session, person_id: UUID, user: EditUser):
     return edit_user_repo(db, person_id, user)
 
 def delete_user_services(db: Session, user_id: int):

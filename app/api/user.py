@@ -1,9 +1,9 @@
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session
 from app.core.database import get_db
-from app.schema.User import UserCreate, UserResponse
+from app.schema.User import UserCreate, UserResponse, EditUser
 from app.services.user_services import add_user_services, list_user_services, edit_user_services, delete_user_services
-
+from uuid import UUID
 
 router = APIRouter(prefix="/User", tags=["User"])
 
@@ -15,8 +15,8 @@ def add_user(user: UserCreate, db: Session = Depends(get_db)):
 def get_user(db: Session = Depends(get_db)):
     return list_user_services(db)
 
-@router.put("/{user_id}", response_model=UserResponse)
-def edit_user(user_id: int, user: UserCreate, db: Session = Depends(get_db)):
+@router.put("/{user_id}", response_model=EditUser)
+def edit_user(user_id: UUID, user: EditUser, db: Session = Depends(get_db)):
     users = edit_user_services(db, user_id, user)
 
     if users is None:

@@ -19,3 +19,11 @@ class UserResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+class EditUser(BaseModel):
+    username: str = Field(
+        min_length=5,
+        max_length=20,
+        pattern=r"^[a-zA-Z0-9_]+$"
+    )
+    email: EmailStr
