@@ -35,7 +35,7 @@ def edit_user_repo(db: Session, user_id: UUID, Users: EditUser):
     return user_from_db
 
 
-def delete_user_repo(db: Session, user_id: int):
+def delete_user_repo(db: Session, user_id: UUID):
     user = db.query(User).filter(User.id == user_id).first()
 
     if user is None:

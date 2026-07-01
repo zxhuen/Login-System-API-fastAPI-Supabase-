@@ -28,7 +28,7 @@ def edit_user(user_id: UUID, user: EditUser, db: Session = Depends(get_db)):
     return users
 
 @router.delete("/{user_id}", response_model=UserResponse)
-def delete_user(user_id: int, db: Session = Depends(get_db)):
+def delete_user(user_id: UUID, db: Session = Depends(get_db)):
     users = delete_user_services(db, user_id)
 
     if users is None:

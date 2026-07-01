@@ -54,5 +54,5 @@ def list_user_services(db: Session):
 def edit_user_services(db: Session, person_id: UUID, user: EditUser):
     return edit_user_repo(db, person_id, user)
 
-def delete_user_services(db: Session, user_id: int):
+def delete_user_services(db: Session, user_id: UUID):
     return delete_user_repo(db, user_id)
