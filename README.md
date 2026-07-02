@@ -19,12 +19,12 @@ This project is part of my backend development journey. The goal is to build a p
 
 ## 🚧 Phase 1 — User Registration
 
-- [ ] Create User model
-- [ ] Registration endpoint
-- [ ] User creation service
-- [ ] Validate request data
-- [ ] Prevent duplicate usernames/emails
-- [ ] Return proper HTTP responses
+- [x] Create User model
+- [x] Registration endpoint
+- [x] User creation service
+- [x] Validate request data
+- [x] Prevent duplicate usernames/emails
+- [x] Return proper HTTP responses
 
 ---
 
