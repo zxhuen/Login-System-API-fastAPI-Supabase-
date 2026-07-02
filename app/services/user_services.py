@@ -6,9 +6,8 @@ from sqlalchemy.exc import IntegrityError
 from pwdlib import PasswordHash
 from app.models.User import User
 from uuid import UUID
-from datetime import datetime, timedelta, timezone
-from jose import jwt
-from app.core.config import settings
+from app.services.auth_services import create_access_token
+
 
 
 password_hash = PasswordHash.recommended()
@@ -117,14 +116,7 @@ def login_services(db: Session, account: user_login):
 
     
 
-def create_access_token(data: dict):
-    to_encode = data.copy()
-    expire = datetime.now(timezone.utc) + timedelta(settings.ACCESS_TOKEN_EXPIRE_MINUTES)
-    to_encode["exp"] = expire
 
-    token = jwt.encode(to_encode, settings.SECRET, settings.ALGORITHM)
-    
-    return token
 
     
 

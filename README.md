@@ -47,8 +47,8 @@ This project is part of my backend development journey. The goal is to build a p
 
 ## 🎫 Phase 4 — JWT Authentication
 
-- [ ] Generate access tokens
-- [ ] Verify JWT tokens
+- [x] Generate access tokens
+- [x] Verify JWT tokens
 - [ ] Protect private endpoints
 - [ ] Get current authenticated user
 
