@@ -55,7 +55,17 @@ def edit_user_services(db: Session, person_id: UUID, user: EditUser):
     return edit_user_repo(db, person_id, user)
 
 def delete_user_services(db: Session, user_id: UUID):
-    return delete_user_repo(db, user_id)
+    user = delete_user_repo(db, user_id)
+
+    if user is None:
+        raise HTTPException(
+            status_code=404,
+            detail="User not found"
+        )
+
+    return user
+
+
 
 def delete_user_pagination_services(db: Session, skip: int, limit: int):
     users = get_users_pagination_repo(db, skip, limit)
