@@ -43,7 +43,7 @@ def delete_user(user_id: UUID, db: Session = Depends(get_db)):
 def get_users_pagination(skip: int, limit: int, db: Session = Depends(get_db)):
     return delete_user_pagination_services(db, skip, limit)
 
-@router.post("/Login", response_model=UserResponse)
+@router.post("/Login")
 def validate_account(account: user_login, db: Session = Depends(get_db)):
     return login_services(db, account)
     
