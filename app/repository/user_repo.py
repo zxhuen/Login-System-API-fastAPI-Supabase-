@@ -65,3 +65,6 @@ def get_users_pagination_repo(db: Session, skip: int, limit: int):
 
 def login_repo(db: Session, username: str):
     return db.query(User).filter(User.username == username).first()
+
+def find_user_ID_repo(db: Session, user_id: UUID):
+    return db.query(User).filter(User.id == user_id).first()
