@@ -30,18 +30,18 @@ This project is part of my backend development journey. The goal is to build a p
 
 ## 🔒 Phase 2 — Password Hashing
 
-- [ ] Hash passwords before saving
-- [ ] Verify passwords during login
-- [ ] Learn how password hashing works
+- [x] Hash passwords before saving
+- [x] Verify passwords during login
+- [x] Learn how password hashing works
 
 ---
 
 ## 🔑 Phase 3 — Login
 
-- [ ] Login endpoint
-- [ ] Verify credentials
-- [ ] Return authentication response
-- [ ] Handle invalid credentials
+- [x] Login endpoint
+- [x] Verify credentials
+- [x] Return authentication response
+- [x] Handle invalid credentials
 
 ---
 
